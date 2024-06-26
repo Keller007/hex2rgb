@@ -7,10 +7,10 @@ const HexToRgbConverter: React.FC = () => {
   const [hasError, setHasError] = useState(false);
 
   const handleHexInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value;
-    setHexColor(input);
+    const input = event.target.value; 
+    if (input.length < 8) setHexColor(input);
 
-    if (input.length >= 7) {
+    if (input.length === 7) {
       const trimmedInput = input.trim();
       if (trimmedInput[0] !== "#") {
         setHasError(true);
